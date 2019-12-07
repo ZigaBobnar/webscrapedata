@@ -1,0 +1,14 @@
+{% extends 'avtonet/layout.html.twig' %}
+
+{% block title %}Hello AvtonetController!{% endblock %}
+
+{% block body %}
+<ul class="ads">
+  {% for ad in ads %}
+    <li>
+        <b>{{ ad.title }}</b>
+        <span>{{ ad.price }}</span>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
