@@ -156,4 +156,18 @@ class AvtonetAd
 
         return $this;
     }
+
+    public function toArrray() {
+      return [
+        'id' => $this->getId(),
+        'title' => $this->getTitle(),
+        'avtonetId' => $this->getAvtonetId(),
+        'price' => $this->getPrice(),
+        'features' => $this->getFeatures(),
+        'coverImageName' => $this->getCoverImageName(),
+        'firstSeenOn' => $this->getFirstSeenOn(),
+        'updatedOn' => $this->getUpdatedOn(),
+        'changelog' => $this->getChangelog()
+      ];
+    }
 }
