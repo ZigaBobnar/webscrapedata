@@ -1,0 +1,11 @@
+{% if latestAdsList %}
+    <ul>
+        {% for ad in latestAdsList %}
+            <li>
+                <a href="/avtonet/{{ ad.id }}/">{{ ad.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No ads were found.</p>
+{% endif %}
