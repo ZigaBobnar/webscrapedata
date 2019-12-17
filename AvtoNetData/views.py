@@ -1,5 +1,5 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import CarAd
 
@@ -12,11 +12,8 @@ def index(request):
     return render(request, 'AvtoNetData/index.html', context)
 
 def detail(request, id):
-    try:
-        carAd = CarAd.objects.get(pk=id)
-    except CarAd.DoesNotExist:
-        raise Http404('The requested ad does not exist')
-
+    carAd = get_object_or_404(CarAd, pk=id)
+    
     return render(request, 'AvtoNetData/detail.html', {
         'carAd': carAd
     })
