@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.template import loader
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 
 from .models import CarAd
@@ -13,4 +12,11 @@ def index(request):
     return render(request, 'AvtoNetData/index.html', context)
 
 def detail(request, id):
-    return HttpResponse('Looking at ad %s' % id)
+    try:
+        carAd = CarAd.objects.get(pk=id)
+    except CarAd.DoesNotExist:
+        raise Http404('The requested ad does not exist')
+
+    return render(request, 'AvtoNetData/detail.html', {
+        'carAd': carAd
+    })
