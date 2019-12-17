@@ -1,12 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}Scraper Data Portal{% endblock %}</title>
   {% block stylesheets %}{% endblock %}
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
 </head>
 <body>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">ScraperData</li>
+        <li><a href="{{ url('app_index') }}">Home</a></li>
+        <li>
+          <a href="{{ url('app_avtonet') }}">Avtonet</a>
+  {#        <ul class="menu vertical">#}
+  {#          <li><a href="#">One</a></li>#}
+  {#          <li><a href="#">Two</a></li>#}
+  {#        </ul>#}
+        </li>
+  {#      <li><a href="#">Bolha</a></li>#}
+  {#      <li><a href="#">Settings</a></li>#}
+      </ul>
+    </div>
+  {#  <div class="top-bar-right">#}
+  {#    <ul class="menu">#}
+  {#      <li><input type="search" placeholder="Search"></li>#}
+  {#      <li><button type="button" class="button">Search</button></li>#}
+  {#    </ul>#}
+  {#  </div>#}
+  </div>
+
   {% block body %}{% endblock %}
   {% block javascripts %}{% endblock %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/what-input/5.2.6/what-input.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
 </body>
 </html>

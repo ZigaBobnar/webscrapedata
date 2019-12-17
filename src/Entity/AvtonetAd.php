@@ -170,4 +170,31 @@ class AvtonetAd
         'changelog' => $this->getChangelog()
       ];
     }
+    
+    public function fromArray($data) {
+        $this->setTitle($data['title'] ?? '');
+        $this->setAvtonetId($data['avtonetId'] ?? null);
+        $this->setPrice($data['price'] ?? null);
+        $this->setFeatures($data['features'] ?? []);
+        $this->setCoverImageName($data['coverImageName'] ?? null);
+        $this->setFirstSeenOn(isset($data['firstSeenOn']) ?
+            \DateTime::createFromFormat('Y-m-d\TH:i:s+', $data['firstSeenOn']) :
+            new \DateTime());
+        $this->setUpdatedOn(isset($data['updatedOn']) ?
+            \DateTime::createFromFormat('Y-m-d\TH:i:s+', $data['updatedOn']) :
+            new \DateTime());
+        $this->setChangelog($data['changelog'] ?? []);
+    }
+    
+    public function isEqualTo(AvtonetAd $ad) {
+        return $this->getAvtonetId() == $this->getAvtonetId() &&
+            $this->getTitle() == $ad->getTitle() &&
+            $this->getPrice() == $ad->getPrice() &&
+            $this->getFeatures() == $ad->getFeatures() &&
+            $this->getCoverImageName() == $ad->getCoverImageName();
+    }
+    
+    public function addToChangelog($changes, \DateTime $datetime) {
+    
+    }
 }

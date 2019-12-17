@@ -3,12 +3,47 @@
 {% block title %}Hello AvtonetController!{% endblock %}
 
 {% block body %}
-<ul class="ads">
-  {% for ad in ads %}
-    <li>
-        <b>{{ ad.title }}</b>
-        <span>{{ ad.price }}</span>
-    </li>
-  {% endfor %}
-</ul>
+    <div class="grid-container" style="margin: 16px;">
+        <div class="grid-x margin-x">
+            {% for ad in ads %}
+                <div class="cell">
+                    <div class="card">
+                        <div class="card-divider">
+                            {{ ad.title }}
+                        </div>
+                        <div class="card-section">
+                            {% if ad.coverImageName != null %}
+{#                                <img src="{{ ad.coverImageName }}" style="float: left">#}
+                            {% endif %}
+                            <ul>
+                                {% for feature in ad.features %}
+                                    <li>
+                                        {{ feature }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+
+                            <b style="float: right;">
+                                {{ ad.price }}
+                            </b>
+
+                            <a href="https://www.avto.net/Ads/details.asp?id={{ ad.avtonetId }}">
+                                Open in Avto.net
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{#<ul class="ads">#}
+{#  {% for ad in ads %}#}
+{#    <li>#}
+{#        <b>{{ ad.title }}</b>#}
+{#        <span>{{ ad.price }}</span>#}
+{#    </li>#}
+{#  {% endfor %}#}
+{#</ul>#}
+
 {% endblock %}

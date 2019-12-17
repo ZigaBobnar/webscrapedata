@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\AvtonetAd;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @method AvtonetAd|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,11 +15,39 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class AvtonetAdRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private $manager;
+    
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
     {
         parent::__construct($registry, AvtonetAd::class);
+        $this->manager = $manager;
     }
-
+    
+    public function findOneByAvtonetId($avtonetId): ?AvtonetAd
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.avtonetId = :val')
+            ->setParameter('val', $avtonetId)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+    
+    public function insertOne(AvtonetAd $ad): AvtonetAd
+    {
+        $this->manager->persist($ad);
+        $this->manager->flush();
+        
+        return $ad;
+    }
+    
+    public function update(AvtonetAd $ad): AvtonetAd
+    {
+        $this->manager->persist($ad);
+        $this->manager->flush();
+        
+        return $ad;
+    }
+    
     // /**
     //  * @return AvtonetAd[] Returns an array of AvtonetAd objects
     //  */
@@ -35,7 +64,7 @@ class AvtonetAdRepository extends ServiceEntityRepository
         ;
     }
     */
-
+    
     /*
     public function findOneBySomeField($value): ?AvtonetAd
     {
