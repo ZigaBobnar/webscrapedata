@@ -2,7 +2,7 @@
     <ul>
         {% for ad in latestAdsList %}
             <li>
-                <a href="/avtonet/{{ ad.id }}/">{{ ad.title }}</a>
+                <a href="{% url 'avtonet:detail' ad.id %}">{{ ad.title }}</a>
             </li>
         {% endfor %}
     </ul>
