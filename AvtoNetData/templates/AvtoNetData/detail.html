@@ -2,3 +2,14 @@
 <p>
     Price: {{ carAd.price }}
 </p>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'avtonet:update' carAd.id %}" method="post">
+{% csrf_token %}
+
+<label for="title">Title</label>
+<input type="text" name="title" id="title" value="{{ carAd.title }}" >
+
+<input type="submit" value="Update" />
+</form>

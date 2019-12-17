@@ -1,5 +1,6 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 
 from .models import CarAd
 
@@ -13,7 +14,17 @@ def index(request):
 
 def detail(request, id):
     carAd = get_object_or_404(CarAd, pk=id)
-    
+
     return render(request, 'AvtoNetData/detail.html', {
         'carAd': carAd
     })
+
+
+def update(request, id):
+    carAd = get_object_or_404(CarAd, pk=id)
+    
+    carAd.title = request.POST['title']
+
+    carAd.save()
+
+    return HttpResponseRedirect(reverse('avtonet:detail', args=(carAd.id,)))
