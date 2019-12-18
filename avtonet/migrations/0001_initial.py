@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('key', models.CharField(max_length=200)),
                 ('value', models.CharField(max_length=200)),
                 ('updated_on', models.DateTimeField(verbose_name='Updated on date')),
-                ('carAd', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='AvtoNetData.CarAd')),
+                ('carAd', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='avtonet.CarAd')),
             ],
         ),
     ]
