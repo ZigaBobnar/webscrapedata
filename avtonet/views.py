@@ -13,6 +13,7 @@ class IndexView(generic.ListView):
         return CarAd.objects.order_by('-first_seen_on')[:5]
 
 class DetailsView(generic.DetailView):
+    context_object_name = 'carAd'
     model = CarAd
     template_name = 'avtonet/details.html'
 
