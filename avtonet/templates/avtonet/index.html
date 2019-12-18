@@ -29,7 +29,10 @@
                         {{ ad.engine_volume_ccm }} ccm
                     {% endif %}
                     {% if ad.engine_power_kw %}
-                        {{ ad.engine_power_kw }} kW (~{{ ad.get_power_hp }} KM)
+                        {{ ad.engine_power_kw }} kW
+                    {% endif %}
+                    {% if ad.engine_power_hp %}
+                        ({{ ad.engine_power_hp }} KM)
                     {% endif %}
                 </li>
                 {% endif %}

@@ -29,6 +29,10 @@ def update(request, id):
 
 def importBrief(request):
     data = json.loads(request.body.decode('utf-8'))
-    
+    ads = data['ads']
+
+    for ad in ads:
+
+        pass    
 
     return HttpResponse(json.dumps(data, indent=2))
