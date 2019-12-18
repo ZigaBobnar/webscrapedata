@@ -1,18 +1,54 @@
 {% extends 'avtonet/base.html' %}
+
 {% block content %}
 {% load static %}
 
 {% if latest_ads_list %}
-    <ul class="ads-list">
-        {% for ad in latest_ads_list %}
-            <li class="ad">
-                <a href="{% url 'avtonet:details' ad.id %}">{{ ad.title }}</a>
-		<div class="ad-price">{{ ad.price }}e</div>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No ads were found.</p>
-{% endif %}
-{% endblock %}
+<div class="ads-list">
+    {% for ad in latest_ads_list %}
+        <div class="ad">
+            <strong><a class="ad-title" href="{% url 'avtonet:details' ad.id %}">{{ ad.title }}</a></h4>
+            <div class="ad-price">{{ ad.price }} €</div>
 
+            <ul>
+                {% if ad.first_registration_year %}
+                <li>Letnik 1. registracije: <strong>{{ ad.first_registration_year }}</strong></li>
+                {% endif %}
+                {% if ad.safety_inspection_until %}
+                <li>Tehnični pregled: <strong>{{ ad.safety_inspection_until }}</strong></li>
+                {% endif %}
+                {% if ad.driven_distance %}
+                <li>Prevoženi kilometri: <strong>{{ ad.driven_distance }}</strong></li>
+                {% endif %}
+                {% if ad.engine_type or ad.engine_volume_ccm or ad.engine_power_kw %}
+                <li>Motor:
+                    {% if ad.engine_type %} 
+                        <strong>{{ ad.engine_type.type_name }}</strong>
+                    {% endif %}
+                    {% if ad.engine_volume_ccm %}
+                        {{ ad.engine_volume_ccm }} ccm
+                    {% endif %}
+                    {% if ad.engine_power_kw %}
+                        {{ ad.engine_power_kw }} kW (~{{ ad.get_power_hp }} KM)
+                    {% endif %}
+                </li>
+                {% endif %}
+                {% if ad.transmission_type %}
+                <li>Menjalnik: <strong>{{ ad.transmission_type }}</strong>
+                    {% if ad.number_of_gears %}
+                        {{ ad.number_of_gears }} prestav
+                    {% endif %}
+                </li>
+                {% endif %}
+                {% if ad.location %}
+                <li>Lokacija ogleda: <strong>{{ ad.location }}</strong></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No ads were found.</p>
+{% endif %}
+
+{% endblock %}

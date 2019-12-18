@@ -18,6 +18,16 @@
     text-align: right;
 }
 
+.ad-title {
+    text-decoration: none;
+    color: darkcyan;
+}
+.ad-title:visited
+.ad-title:focus
+.ad-title:hover {
+    color: darkcyan;
+}
+
 li a {
     color: green;
 }
