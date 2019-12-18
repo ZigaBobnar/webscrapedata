@@ -25,7 +25,7 @@ SECRET_KEY = '3th+hn#)*udbu!(n&r(ba13y%a8ru&l2id9!rm7q!i6)-%7qfi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ScraperData.urls'
+ROOT_URLCONF = 'webscrapedata.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ScraperData.wsgi.application'
+WSGI_APPLICATION = 'webscrapedata.wsgi.application'
 
 
 # Database
