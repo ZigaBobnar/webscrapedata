@@ -10,12 +10,12 @@ def index(request):
         'latestAdsList': latestAdsList,
     }
 
-    return render(request, 'AvtoNetData/index.html', context)
+    return render(request, 'avtonet/index.html', context)
 
 def detail(request, id):
     carAd = get_object_or_404(CarAd, pk=id)
 
-    return render(request, 'AvtoNetData/detail.html', {
+    return render(request, 'avtonet/detail.html', {
         'carAd': carAd
     })
 
