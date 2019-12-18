@@ -3,10 +3,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'avtonet/style.css' %}">
 
 {% if latest_ads_list %}
-    <ul>
+    <ul class="ads-list">
         {% for ad in latest_ads_list %}
-            <li>
+            <li class="ad">
                 <a href="{% url 'avtonet:details' ad.id %}">{{ ad.title }}</a>
+		<div class="ad-price">{{ ad.price }}e</div>
             </li>
         {% endfor %}
     </ul>

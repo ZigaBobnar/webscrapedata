@@ -1,3 +1,23 @@
+.ads-list {
+    padding: 8px;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 90%;
+}
+
+.ad {
+    padding: 16px;
+    background-color: #eee;
+    display: block;
+    margin: 4px;
+    border-radius: 4px;
+
+}
+
+.ad-price {
+    text-align: right;
+}
+
 li a {
     color: green;
 }
