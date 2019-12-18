@@ -1,6 +1,6 @@
+{% extends 'avtonet/base.html' %}
+{% block content %}
 {% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'avtonet/style.css' %}">
 
 {% if latest_ads_list %}
     <ul class="ads-list">
@@ -14,3 +14,5 @@
 {% else %}
     <p>No ads were found.</p>
 {% endif %}
+{% endblock %}
+
