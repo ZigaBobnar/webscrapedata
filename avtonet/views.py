@@ -1,24 +1,20 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from django.views import generic
 
 from .models import CarAd
 
-def index(request):
-    latestAdsList = CarAd.objects.order_by('-first_seen_on')[:5]
-    context = {
-        'latestAdsList': latestAdsList,
-    }
+class IndexView(generic.ListView):
+    template_name = 'avtonet/index.html'
+    context_object_name = 'latest_ads_list'
 
-    return render(request, 'avtonet/index.html', context)
+    def get_queryset(self):
+        return CarAd.objects.order_by('-first_seen_on')[:5]
 
-def detail(request, id):
-    carAd = get_object_or_404(CarAd, pk=id)
-
-    return render(request, 'avtonet/detail.html', {
-        'carAd': carAd
-    })
-
+class DetailsView(generic.DetailView):
+    model = CarAd
+    template_name = 'avtonet/details.html'
 
 def update(request, id):
     carAd = get_object_or_404(CarAd, pk=id)
@@ -27,4 +23,4 @@ def update(request, id):
 
     carAd.save()
 
-    return HttpResponseRedirect(reverse('avtonet:detail', args=(carAd.id,)))
+    return HttpResponseRedirect(reverse('avtonet:details', args=(carAd.id,)))

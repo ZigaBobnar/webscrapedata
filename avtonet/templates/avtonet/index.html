@@ -2,11 +2,11 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'avtonet/style.css' %}">
 
-{% if latestAdsList %}
+{% if latest_ads_list %}
     <ul>
-        {% for ad in latestAdsList %}
+        {% for ad in latest_ads_list %}
             <li>
-                <a href="{% url 'avtonet:detail' ad.id %}">{{ ad.title }}</a>
+                <a href="{% url 'avtonet:details' ad.id %}">{{ ad.title }}</a>
             </li>
         {% endfor %}
     </ul>
