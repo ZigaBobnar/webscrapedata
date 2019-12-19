@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views import generic
+from django.views.decorators.http import require_POST
 import json
 
 from .models import CarAd
@@ -27,7 +28,10 @@ def update(request, id):
 
     return HttpResponseRedirect(reverse('avtonet:details', args=(carAd.id,)))
 
-def importBrief(request):
+@require_POST
+def import_brief(request):
+    result = {'error': False}
+
     data = json.loads(request.body.decode('utf-8'))
     ads = data['ads']
 
@@ -35,4 +39,4 @@ def importBrief(request):
 
         pass    
 
-    return HttpResponse(json.dumps(data, indent=2))
+    return HttpResponse(json.dumps(result))

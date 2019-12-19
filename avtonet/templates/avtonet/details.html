@@ -1,13 +1,12 @@
 {% extends 'avtonet/base.html' %}
+{% load humanize %}
 
 {% block title %}Ad details - {{ carAd.id }}{% endblock %}
 
 {% block content %}
 <div class="ad-details">
-    <h1>{{ carAd.title }}</h1>
-    <div class="price">
-        Price: {{ carAd.price }}
-    </div>
+    <h1 class="ad-title">{{ carAd.title }}</h1>
+    <div class="ad-price">{{ carAd.price|floatformat:0|intcomma }} €</div>
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 

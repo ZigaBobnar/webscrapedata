@@ -8,5 +8,5 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('<int:pk>/', views.DetailsView.as_view(), name='details'),
     path('<int:id>/update', views.update, name='update'),
-    path('importBrief', csrf_exempt(views.importBrief), name='importBrief'),
+    path('import_brief', csrf_exempt(views.import_brief), name='importBrief'),
 ]

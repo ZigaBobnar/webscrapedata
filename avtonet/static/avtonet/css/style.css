@@ -46,10 +46,6 @@ body {
     border-radius: 4px;
 }
 
-.ads-list .ad .ad-price {
-    text-align: right;
-}
-
 .ads-list .ad .ad-title {
     text-decoration: none;
     color: rgb(5, 122, 122);
@@ -68,13 +64,18 @@ body {
     border-radius: 4px;
 }
 
-.ad-details h1 {
+.ad-details .ad-title {
     font-size: 1.6rem;
     font-weight: normal;
     margin: 0 0 16px 0;
+    display: inline-block;
 }
 
-.ad-details .price {
-    font-size: 1.4rem;
-    text-align: right;
+ .ad-price {
+    font-size: 1.1rem;
+    float: right;
+    border: 1px solid rgba(189, 189, 189, 0.432);
+    background-color: rgba(229, 255, 249, 0.418);
+    border-radius: 4px;
+    padding: 8px;
 }

@@ -1,11 +1,12 @@
 {% extends 'avtonet/base.html' %}
+{% load humanize %}
 
 {% block content %}
 <div class="ads-list">
 {% for ad in latest_ads_list %}
     <div class="ad">
-        <strong><a class="ad-title" href="{% url 'avtonet:details' ad.id %}">{{ ad.title }}</a></h4>
-        <div class="ad-price">{{ ad.price }} €</div>
+        <a class="ad-title" href="{% url 'avtonet:details' ad.id %}">{{ ad.title }}</a></h4>
+        <div class="ad-price">{{ ad.price|floatformat:0|intcomma }} €</div>
 
         <ul>
             {% if ad.first_registration_year %}
