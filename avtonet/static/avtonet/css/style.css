@@ -1,0 +1,80 @@
+html,
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+
+#top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: rgb(59, 155, 75);
+}
+
+#top-bar a {
+    color: white;
+    text-decoration: none;
+}
+
+#main-content-wrapper {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+}
+
+#main-content {
+    padding: 16px;
+}
+
+.ads-list {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
+.ads-list .ad {
+    padding: 16px;
+    background-color: rgb(227, 233, 236);
+    display: block;
+    margin: 8px;
+    border-radius: 4px;
+}
+
+.ads-list .ad .ad-price {
+    text-align: right;
+}
+
+.ads-list .ad .ad-title {
+    text-decoration: none;
+    color: rgb(5, 122, 122);
+}
+.ads-list .ad .ad-title:visited
+.ads-list .ad .ad-title:focus
+.ads-list .ad .ad-title:hover {
+    color: rgb(5, 122, 122);
+}
+
+.ad-details {
+    margin: 0 auto;
+    max-width: 960px;
+    background-color: rgb(227, 233, 236);
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.ad-details h1 {
+    font-size: 1.6rem;
+    font-weight: normal;
+    margin: 0 0 16px 0;
+}
+
+.ad-details .price {
+    font-size: 1.4rem;
+    text-align: right;
+}

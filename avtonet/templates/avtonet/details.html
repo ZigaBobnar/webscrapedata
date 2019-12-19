@@ -1,19 +1,23 @@
-{% load static %}
+{% extends 'avtonet/base.html' %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'avtonet/style.css' %}">
+{% block title %}Ad details - {{ carAd.id }}{% endblock %}
 
-<h1>{{ carAd.title }}</h1>
-<p>
-    Price: {{ carAd.price }}
-</p>
+{% block content %}
+<div class="ad-details">
+    <h1>{{ carAd.title }}</h1>
+    <div class="price">
+        Price: {{ carAd.price }}
+    </div>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'avtonet:update' carAd.id %}" method="post">
-{% csrf_token %}
+    <form action="{% url 'avtonet:update' carAd.id %}" method="post">
+    {% csrf_token %}
 
-<label for="title">Title</label>
-<input type="text" name="title" id="title" value="{{ carAd.title }}" >
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="{{ carAd.title }}" >
 
-<input type="submit" value="Update" />
-</form>
+    <input type="submit" value="Update" />
+    </form>
+</div>
+{% endblock %}

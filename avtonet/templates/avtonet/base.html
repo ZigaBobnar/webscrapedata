@@ -1,13 +1,19 @@
-{% load static %}
-<!doctype html>
+{% load static %}<!doctype html>
 <html>
 <head>
-    <title></title>
-    <link rel="stylesheet" href="{% static 'avtonet/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'avtonet/css/style.css' %}">
 </head>
 <body>
-{% block content %}
-{% endblock %}
+<nav id="top-bar">
+    <a href="{% url 'avtonet:index' %}">Avtonet data</a>
+</nav>
+<div id="main-content-wrapper">
+    <div id="main-content">
+    {% block content %}
+    {% endblock %}
+    </div>
+</div>
 </body>
 </html>
-

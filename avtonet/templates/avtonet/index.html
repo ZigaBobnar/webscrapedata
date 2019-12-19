@@ -1,8 +1,6 @@
 {% extends 'avtonet/base.html' %}
 
 {% block content %}
-{% load static %}
-
 {% if latest_ads_list %}
 <div class="ads-list">
     {% for ad in latest_ads_list %}
@@ -53,5 +51,4 @@
 {% else %}
 <p>No ads were found.</p>
 {% endif %}
-
 {% endblock %}
