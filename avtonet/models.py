@@ -1,10 +1,12 @@
 from django.db import models
 
+
 class EngineType(models.Model):
     type_name = models.CharField(max_length=20)
 
     def __str__(self):
         return self.type_name
+
 
 class TransmissionType(models.Model):
     type_name = models.CharField(max_length=20)
@@ -12,11 +14,13 @@ class TransmissionType(models.Model):
     def __str__(self):
         return self.type_name
 
+
 class ChassisType(models.Model):
     type_name = models.CharField(max_length=20)
 
     def __str__(self):
         return self.type_name
+
 
 class CarAd(models.Model):
     avtonet_id = models.CharField(max_length=20, null=True, blank=True)
