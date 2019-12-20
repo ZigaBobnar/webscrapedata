@@ -14,3 +14,5 @@ Web portal for displaying the data acquired by webscrapers in useful way. Built 
 - Open `http://localhost:8000`
 
 When you are done working with this project you can use `deactivate` command in order to exit the virtual environment. Always remember to activate the enviromnent again if you want to use it.
+
+Once the project is setup you may need to create the databases usig `python manage.py migrate` and create new superuser using `python manage.py createsuperuser` and navigate to `localhost:8000/admin` to manage the application.
