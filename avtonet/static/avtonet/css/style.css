@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     position: relative;
+    background-color: rgb(17, 21, 26);
 }
 
 #top-bar {
@@ -14,7 +15,7 @@ body {
     line-height: 48px;
     padding-left: 16px;
     padding-right: 16px;
-    background-color: rgb(59, 155, 75);
+    background-color: rgb(17, 112, 160);
 }
 
 #top-bar a {
@@ -40,20 +41,54 @@ body {
 
 .ads-list .ad {
     padding: 16px;
-    background-color: rgb(227, 233, 236);
+    background-color: rgb(18, 29, 41);
     display: block;
     margin: 8px;
     border-radius: 4px;
+    border: 1px solid rgb(18, 29, 41);
+    transition-duration: .1s;
+}
+
+.ads-list .ad:hover,
+.ads-list .ad:focus {
+    background-color: rgb(22, 40, 59);
+    border: 1px solid rgb(30, 54, 80);
 }
 
 .ads-list .ad .ad-title {
     text-decoration: none;
-    color: rgb(5, 122, 122);
+    color: rgb(160, 214, 241);
+    font-size: 1.2em;
 }
-.ads-list .ad .ad-title:visited
-.ads-list .ad .ad-title:focus
+.ads-list .ad .ad-title:visited,
+.ads-list .ad .ad-title:focus,
 .ads-list .ad .ad-title:hover {
-    color: rgb(5, 122, 122);
+    color: rgb(160, 214, 241);
+}
+
+.cards {
+    margin-top: 8px;
+}
+
+.card {
+    display: inline-block;
+    border-radius: 4px;
+    margin: 8px;
+}
+.card-title {
+    background-color: rgb(36, 46, 51);;
+    padding: 8px 16px;
+    text-align: center;
+    color: rgb(141, 141, 141);
+    border-radius: 4px 4px 0 0;
+}
+.card-content {
+    padding: 8px 16px;
+    background-color: rgb(63, 91, 105);
+    color: white;
+}
+.no-data {
+    opacity: .5;
 }
 
 .ad-details {

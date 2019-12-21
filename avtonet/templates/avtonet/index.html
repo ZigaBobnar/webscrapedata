@@ -8,43 +8,78 @@
         <a class="ad-title" href="{% url 'avtonet:details' ad.id %}">{{ ad.title }}</a></h4>
         <div class="ad-price">{{ ad.price|floatformat:0|intcomma }} €</div>
 
-        <ul>
-            {% if ad.first_registration_year %}
-            <li>Letnik 1. registracije: <strong>{{ ad.first_registration_year }}</strong></li>
-            {% endif %}
-            {% if ad.safety_inspection_until %}
-            <li>Tehnični pregled: <strong>{{ ad.safety_inspection_until }}</strong></li>
-            {% endif %}
-            {% if ad.driven_distance %}
-            <li>Prevoženi kilometri: <strong>{{ ad.driven_distance }}</strong></li>
-            {% endif %}
-            {% if ad.engine_type or ad.engine_volume_ccm or ad.engine_power_kw %}
-            <li>Motor:
-                {% if ad.engine_type %} 
-                    <strong>{{ ad.engine_type.type_name }}</strong>
+        <div class="cards">
+            <div class="card">
+                <div class="card-title">Letnik 1. registracije</div>
+                <div class="card-content">
+                    {%if ad.first_registration_year %}
+                        {{ ad.first_registration_year }}
+                    {% else %}
+                        <span class="no-data">Ni podatka</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Tehnični pregled</div>
+                <div class="card-content">
+                    {% if ad.safety_inspection_until_year %}
+                        {%if ad.safety_inspection_until_month %}
+                            {{ ad.safety_inspection_until_month }} /
+                        {% endif %}
+                        {{ ad.safety_inspection_until_year }}
+                    {% else %}
+                        <span class="no-data">Ni podatka</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Prevoženi kilometri</div>
+                {% if ad.driven_distance %}
+                    <div class="card-content">{{ ad.driven_distance }}</div>
+                {% else %}
+                    <span class="no-data">Ni podatka</span>
                 {% endif %}
-                {% if ad.engine_volume_ccm %}
-                    {{ ad.engine_volume_ccm }} ccm
-                {% endif %}
-                {% if ad.engine_power_kw %}
-                    {{ ad.engine_power_kw }} kW
-                {% endif %}
-                {% if ad.engine_power_hp %}
-                    ({{ ad.engine_power_hp }} KM)
-                {% endif %}
-            </li>
-            {% endif %}
-            {% if ad.transmission_type %}
-            <li>Menjalnik: <strong>{{ ad.transmission_type }}</strong>
-                {% if ad.number_of_gears %}
-                    {{ ad.number_of_gears }} prestav
-                {% endif %}
-            </li>
-            {% endif %}
-            {% if ad.location %}
-            <li>Lokacija ogleda: <strong>{{ ad.location }}</strong></li>
-            {% endif %}
-        </ul>
+            </div>
+    
+            <br />
+            <div class="card">
+                <div class="card-title">Motor</div>
+                <div class="card-content">
+                    {% if ad.engine_type %}
+                        {{ ad.engine_type.type_name }}
+
+                        {% if ad.engine_volume_ccm %}
+                            {{ ad.engine_volume_ccm }} ccm
+                        {% endif %}
+                        {% if ad.engine_power_kw %}
+                            {{ ad.engine_power_kw }} kW
+                        {% endif %}
+                        {% if ad.engine_power_hp %}
+                            ({{ ad.engine_power_hp }} KM)
+                        {% endif %}
+                    {% else %}
+                        <span class="no-data">Ni podatka</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Menjalnik</div>
+                <div class="card-content">
+                    {% if ad.transmission_type %}
+                        {{ ad.transmission_type.type_name }}
+                        {% if ad.number_of_gears %}
+                            {{ ad.number_of_gears }} prestav
+                        {% endif %}
+                    {% else %}
+                        <span class="no-data">Ni podatka</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% if ad.location %}
+        <p>Lokacija ogleda: <strong>{{ ad.location }}</strong></p>
+        {% endif %}
     </div>
 {% empty %}
     <p>No ads were found.</p>

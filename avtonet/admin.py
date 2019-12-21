@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import CarAd, ChassisType, EngineType, TransmissionType
+from .models import CarAd, ChassisType, EngineType, TransmissionType, AgeType
 
 
 class CarAdAdmin(admin.ModelAdmin):
@@ -13,3 +13,4 @@ admin.site.register(CarAd, CarAdAdmin)
 admin.site.register(ChassisType)
 admin.site.register(EngineType)
 admin.site.register(TransmissionType)
+admin.site.register(AgeType)
