@@ -9,7 +9,7 @@ Web portal for displaying the data acquired by webscrapers in useful way. Built 
 - Check out this project and cd into it
 - Run `virtualenv venv --no-site-packages` to create virtual environment (you can replace venv with something else as long as it is not present in the current directory). The --no-site-packages options is used so the globally installed packages are not copied into virtualenv
 - Run `source venv/bin/activate` (Linux) or `.\venv\Scripts\activate` (Windows, you might need to enable running PowerShell scripts)
-- Install required packages using `pip install requirements.txt`
+- Install required packages using `pip install -r requirements.txt`
 - Use `python manage.py runserver` to start development server
 - Open `http://localhost:8000`
 
