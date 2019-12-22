@@ -37,6 +37,7 @@ body {
 .ads-list {
     margin: 0 auto;
     max-width: 960px;
+    color: white;
 }
 
 .ads-list .ad {
@@ -86,6 +87,7 @@ body {
     padding: 8px 16px;
     background-color: rgb(63, 91, 105);
     color: white;
+    border-radius: 0 0 4px 4px;
 }
 .no-data {
     opacity: .5;
